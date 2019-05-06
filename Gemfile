@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'resolv-replace'
 gem 'httparty', '0.14.0'
 gem 'rubocop', '~> 0.60.0', require: false
 gem 'sinatra'
