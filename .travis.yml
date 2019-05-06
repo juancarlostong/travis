@@ -7,4 +7,5 @@ env:
     REPEAT: 20
 
 script:
+  - cat /etc/resolv.conf
   - while docker build . --no-cache; do (( count++ )); echo "count=$count"; if [[ $count -gt $REPEAT ]]; then break; fi; done
