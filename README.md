@@ -82,6 +82,7 @@ af 4 3 2 1
 
 
 ### with merge_mode: deep_merge with changes to after_success
+https://travis-ci.com/juancarlostong/travisci-docs/builds/110779451
 now that we got deep_merge working, let's see if we can deep merge after_success steps
 ie. can we run both `echo "af $var1 $var2 $var3 $var4"` in .travis.yml as well as `echo "af $var4 $var3 $var2 $var1"` that comes from the build trigger payload?
 
@@ -115,6 +116,7 @@ af 4 3 2 1
 ```
 
 ### with merge_mode: deep_merge with changes to script
+https://travis-ci.com/juancarlostong/travisci-docs/builds/110780013
 maybe it only works for script section?
 ie. can we run both `echo "af $var1 $var2 $var3 $var4"` in .travis.yml as well as `echo "af $var4 $var3 $var2 $var1"` that comes from the build trigger payload?
 
@@ -151,6 +153,7 @@ af 1 2 3 4
 we're trying to flatten the directory structure where files are generated and upload them all into the the root folder of a bucket
 
 ### atttempt #1 .travis.yml
+https://travis-ci.com/juancarlostong/travisci-docs/builds/110787977
 ```yaml
 addons:
   artifacts: true
@@ -174,6 +177,7 @@ Done uploading artifacts
 ```
 
 ### attempt #2
+https://travis-ci.com/juancarlostong/travisci-docs/builds/110790907
 `download_url: https://s3.amazonaws.com/[secure]/juancarlostong/travisci-docs/17/17.1/generated_file_for_uploading.txt`
 we want to get rid of "juancarlostong/travisci-docs/17/17.1/"
 
@@ -206,6 +210,7 @@ Done. Your build exited with 0.
 ```
 
 ### attempt #3
+https://travis-ci.com/juancarlostong/travisci-docs/builds/110792995
 can we still upload to the bucket's root even if our source file is in some folder structure?
 
 .travis.yml
