@@ -187,3 +187,20 @@ addons:
 script:
   - echo "s $var1 $var2 $var3 $var4" > generated_file_for_uploading.txt
 ```
+
+result (good):
+```
+Uploading Artifacts
+artifacts.setup
+artifacts version v0.7.9-3-geef78ca revision=eef78ca2da49a8783a32d4293c24b7025b52b097
+$ export ARTIFACTS_PATHS="$(git ls-files -o | tr \"\\n\" \":\")"
+$ artifacts upload
+INFO: uploading with settings
+  bucket: [secure]
+  cache_control: private
+  permissions: private
+INFO: uploading: /home/travis/build/juancarlostong/travisci-docs/generated_file_for_uploading.txt (size: 9B)
+  download_url: https://s3.amazonaws.com/[secure]/generated_file_for_uploading.txt
+Done uploading artifacts
+Done. Your build exited with 0.
+```
