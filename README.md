@@ -146,3 +146,7 @@ after_success
 0.00s$ echo "af $var1 $var2 $var3 $var4"
 af 1 2 3 4
 ```
+
+## artifact uploader documentation
+we're trying to flatten the directory structure where files are generated and upload them all into the the root folder of a bucket
+
