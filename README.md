@@ -84,6 +84,7 @@ af 4 3 2 1
 ### with merge_mode: deep_merge with changes to after_success
 now that we got deep_merge working, let's see if we can deep merge after_success steps
 ie. can we run both `echo "af $var1 $var2 $var3 $var4"` in .travis.yml as well as `echo "af $var4 $var3 $var2 $var1"` that comes from the build trigger payload?
+
 https://travis-ci.com/juancarlostong/travisci-docs/builds/110779451
 ```
 merge_mode: deep_merge
@@ -115,6 +116,7 @@ af 4 3 2 1
 ### with merge_mode: deep_merge with changes to script
 maybe it only works for script section?
 ie. can we run both `echo "af $var1 $var2 $var3 $var4"` in .travis.yml as well as `echo "af $var4 $var3 $var2 $var1"` that comes from the build trigger payload?
+
 https://travis-ci.com/juancarlostong/travisci-docs/builds/110780013
 ```
 merge_mode: deep_merge
