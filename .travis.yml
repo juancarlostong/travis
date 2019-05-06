@@ -5,6 +5,12 @@ env:
   global:
     count: 0
     REPEAT: 20
+
+before_install:
+  - sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+  - sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+  - ip addr # for confirmation. can be skipped
+
 install:
   - sudo cp gai.conf /etc/gai.conf
 script:

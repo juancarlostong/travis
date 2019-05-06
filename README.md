@@ -268,7 +268,7 @@ https://travis-ci.com/juancarlostong/travisci-docs/builds/110804628
 ### try to fix with newer version of bundler (through using ruby 2.6.0 instead of 2.3.1)
 d580c2cbfe3dc47acdcdda67959d1fba37f7cf49
 
-result:
+result (good):
 https://travis-ci.com/juancarlostong/travisci-docs/builds/110805320
 `docker build` doesnt exit anymore because the new bundler version will retry downloading gems.
 
