@@ -5,6 +5,7 @@ env:
   global:
     count: 0
     REPEAT: 20
-
+install:
+  - sudo cp gai.conf /etc/gai.conf
 script:
   - while docker build . --no-cache; do (( count++ )); echo "count=$count"; if [[ $count -gt $REPEAT ]]; then break; fi; done
