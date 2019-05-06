@@ -3,21 +3,7 @@ os: linux
 
 env:
   global:
-    var1: 1
-    var2: 2
-    var3: 3
-
-addons:
-  artifacts:
-    target_paths:
-      - /
-    paths:
-      - /tmp/upload
+    REPEAT: 20
 
 script:
-  - mkdir -p /tmp/upload
-  - echo "s $var1 $var2 $var3 $var4" > /tmp/upload/generated_file_for_uploading.txt
-  - echo "s $var1 $var2 $var3 $var4" > dont_want_to_upload_this.txt
-
-after_success:
-  - echo "af $var1 $var2 $var3 $var4"
+  - while docker build . --no-cache; do (( count++ )); if [[ $count -gt $REPEAT ]]; then break; fi; done

@@ -245,3 +245,15 @@ INFO: uploading: /tmp/upload/generated_file_for_uploading.txt (size: 9B)
   download_url: https://s3.amazonaws.com/[secure]/tmp/upload/generated_file_for_uploading.txt
 Done uploading artifacts
 ```
+
+## figure out why `bundle install` sometimes fails
+https://github.com/travis-ci/travis-ci/issues/7499
+https://help.rubygems.org/discussions/problems/22609-intermittent-problems-when-pulling-gems
+check rubygems status: https://status.rubygems.org/history
+http://www.zhuwu.me/blog/posts/solve-gem-installation-timeout-when-building-docker-image
+```
+Gem::RemoteFetcher::UnknownHostError: timed out
+(https://rubygems.org/gems/parallel-1.17.0.gem)
+An error occurred while installing parallel (1.17.0), and Bundler cannot
+continue.
+```
