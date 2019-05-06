@@ -174,7 +174,7 @@ Done uploading artifacts
 ```
 
 ### attempt #2
-from: download_url: https://s3.amazonaws.com/[secure]/juancarlostong/travisci-docs/17/17.1/generated_file_for_uploading.txt
+`download_url: https://s3.amazonaws.com/[secure]/juancarlostong/travisci-docs/17/17.1/generated_file_for_uploading.txt`
 we want to get rid of "juancarlostong/travisci-docs/17/17.1/"
 
 .travis.yml
