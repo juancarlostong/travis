@@ -95,7 +95,8 @@ after_success:
   echo "af $var4 $var3 $var2 $var1"
 ```
 
-result (bad)
+result (bad):
+
 made no difference from prev run
 ```
 Setting environment variables from .travis.yml
@@ -127,7 +128,8 @@ script:
   echo "s $var4 $var3 $var2 $var1"
 ```
 
-results (bad)
+results (bad):
+
 it looks like we deep_merge only applies to variables and not to sections like script or after_success.
 ```
 Setting environment variables from .travis.yml
