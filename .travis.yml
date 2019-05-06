@@ -7,5 +7,4 @@ env:
     REPEAT: 20
 
 script:
-  - gem install resolver_replace
   - while docker build . --no-cache; do (( count++ )); echo "count=$count"; if [[ $count -gt $REPEAT ]]; then break; fi; done
