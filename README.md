@@ -266,3 +266,4 @@ we can see its intermittent nature:
 https://travis-ci.com/juancarlostong/travisci-docs/builds/110804628
 
 ### try to fix with newer version of bundler (through using ruby 2.6.0 instead of 2.3.1)
+d580c2cbfe3dc47acdcdda67959d1fba37f7cf49
