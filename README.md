@@ -204,3 +204,39 @@ INFO: uploading: /home/travis/build/juancarlostong/travisci-docs/generated_file_
 Done uploading artifacts
 Done. Your build exited with 0.
 ```
+
+### attempt #3
+can we still upload to the bucket's root even if our source file is in some folder structure?
+
+.travis.yml
+```
+addons:
+  artifacts:
+    target_paths:
+      - /
+    paths:
+      - /tmp/upload
+
+script:
+  - mkdir -p /tmp/upload
+  - echo "s $var1 $var2 $var3 $var4" > /tmp/upload/generated_file_for_uploading.txt
+  - echo "s $var1 $var2 $var3 $var4" > dont_want_to_upload_this.txt
+```
+
+result (bad):
+
+no we cant. it'll append "/tmp/upload/" to the destination. at least it didn't upload the random `dont_want_to_upload_this.txt file`
+```
+Uploading Artifacts
+artifacts.setup
+artifacts version v0.7.9-3-geef78ca revision=eef78ca2da49a8783a32d4293c24b7025b52b097
+$ export ARTIFACTS_PATHS="/tmp/upload"
+$ artifacts upload
+INFO: uploading with settings
+  bucket: [secure]
+  cache_control: private
+  permissions: private
+INFO: uploading: /tmp/upload/generated_file_for_uploading.txt (size: 9B)
+  download_url: https://s3.amazonaws.com/[secure]/tmp/upload/generated_file_for_uploading.txt
+Done uploading artifacts
+```
