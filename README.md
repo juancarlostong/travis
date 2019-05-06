@@ -257,3 +257,9 @@ Gem::RemoteFetcher::UnknownHostError: timed out
 An error occurred while installing parallel (1.17.0), and Bundler cannot
 continue.
 ```
+
+https://github.com/juancarlostong/travisci-docs/blob/66bd3a24405de957769b5e7fec818c17aea4d0b3/.travis.yml
+
+result:
+able to duplicate error
+https://travis-ci.com/juancarlostong/travisci-docs/builds/110803997
