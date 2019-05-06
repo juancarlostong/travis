@@ -4,7 +4,7 @@ This repo attempts to document travis-ci.com's quirks to supplement the existing
 ## travisci job build trigger documentation
 ### without merge_mode
 https://travis-ci.com/juancarlostong/travisci-docs/builds/110776085
-```
+```yaml
 env:
   global:
     var4=4
@@ -28,7 +28,7 @@ af 4
 
 ### with merge_mode: deep_merge
 https://travis-ci.com/juancarlostong/travisci-docs/builds/110777879
-```
+```yaml
 merge_mode: deep_merge
 env:
   global:
@@ -54,7 +54,7 @@ Done. Your build exited with 0.
 
 ### with merge_mode: deep_merge dont use = sign
 https://travis-ci.com/juancarlostong/travisci-docs/builds/110778344
-```
+```yaml
 merge_mode: deep_merge
 env:
   global:
@@ -86,7 +86,7 @@ now that we got deep_merge working, let's see if we can deep merge after_success
 ie. can we run both `echo "af $var1 $var2 $var3 $var4"` in .travis.yml as well as `echo "af $var4 $var3 $var2 $var1"` that comes from the build trigger payload?
 
 https://travis-ci.com/juancarlostong/travisci-docs/builds/110779451
-```
+```yaml
 merge_mode: deep_merge
 env:
   global:
@@ -119,7 +119,7 @@ maybe it only works for script section?
 ie. can we run both `echo "af $var1 $var2 $var3 $var4"` in .travis.yml as well as `echo "af $var4 $var3 $var2 $var1"` that comes from the build trigger payload?
 
 https://travis-ci.com/juancarlostong/travisci-docs/builds/110780013
-```
+```yaml
 merge_mode: deep_merge
 env:
   global:
@@ -150,3 +150,40 @@ af 1 2 3 4
 ## artifact uploader documentation
 we're trying to flatten the directory structure where files are generated and upload them all into the the root folder of a bucket
 
+### atttempt #1 .travis.yml
+```yaml
+addons:
+  artifacts: true
+
+script:
+  - echo "s $var1 $var2 $var3 $var4" > generated_file_for_uploading.txt
+```
+
+result:
+```
+artifacts version v0.7.9-3-geef78ca revision=eef78ca2da49a8783a32d4293c24b7025b52b097
+$ export ARTIFACTS_PATHS="$(git ls-files -o | tr \"\\n\" \":\")"
+$ artifacts upload
+INFO: uploading with settings
+  bucket: [secure]
+  cache_control: private
+  permissions: private
+INFO: uploading: /home/travis/build/juancarlostong/travisci-docs/generated_file_for_uploading.txt (size: 9B)
+  download_url: https://s3.amazonaws.com/[secure]/juancarlostong/travisci-docs/17/17.1/generated_file_for_uploading.txt
+Done uploading artifacts
+```
+
+### attempt #2
+from: download_url: https://s3.amazonaws.com/[secure]/juancarlostong/travisci-docs/17/17.1/generated_file_for_uploading.txt
+we want to get rid of "juancarlostong/travisci-docs/17/17.1/"
+
+.travis.yml
+```yaml
+addons:
+  artifacts: true
+    target_paths:
+      - /
+
+script:
+  - echo "s $var1 $var2 $var3 $var4" > generated_file_for_uploading.txt
+```
