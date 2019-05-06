@@ -10,10 +10,7 @@ env:
     var3: 3
 
 script:
-  - echo "s $var1 $var2 $var3 $var4"
+  - echo "s $var1 $var2 $var3 $var4" > generated_file_for_uploading.txt
 
 after_success:
   - echo "af $var1 $var2 $var3 $var4"
-
-after_script:
-  - artifacts upload --target-paths "/" *.md
