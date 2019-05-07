@@ -276,4 +276,14 @@ https://travis-ci.com/juancarlostong/travisci-docs/builds/110805320
 according to http://biplane.com.au/blog/?p=122 the reason its failing to download gems is due to ipv6
 we try to implement their suggested fix (/etc/gai.conf)
 
-result:
+result: no difference
+
+### add --full-index to bundle install
+https://github.com/bundler/bundler/issues/2618#issuecomment-23633034
+
+https://bundler.io/v1.2/bundle_install.html
+--full-index: Use the rubygems modern index instead of the API endpoint
+
+
+result (good):
+https://travis-ci.com/juancarlostong/travisci-docs/builds/110929390
